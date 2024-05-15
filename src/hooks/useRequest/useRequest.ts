@@ -8,19 +8,36 @@ interface Response<Data> {
   msg: string;
 }
 
+interface UseRequestResponse<Data, Error>
+  extends Pick<
+    SWRResponse<Response<Data>, AxiosError<Error>>,
+    "isValidating" | "error" | "mutate"
+  > {
+  data: Data | undefined;
+  response: Response<Data> | undefined;
+}
+
 export function useRequest<Data = unknown, Error = unknown>(
   request: AxiosRequestConfig,
   config?: SWRConfiguration
-) {
-  const { data, error } = useSWR<Response<Data>, AxiosError<Error>>(
+): UseRequestResponse<Data, Error> {
+  const {
+    data: response,
+    error,
+    mutate,
+    isValidating,
+  } = useSWR<Response<Data>, AxiosError<Error>>(
     request.url,
     () => axiosInstance.request(request),
     config
   );
 
   return {
-    data,
+    data: response?.data,
+    response,
     error,
+    mutate,
+    isValidating,
   };
 }
 
