@@ -6,6 +6,9 @@ import { ErrorBlock } from "@/bases";
 import { Swiper } from "@taoyage/react-mobile-ui";
 import { IHomeData } from "./types";
 import Navbar from "./components/navbar";
+import { px2rem } from "@/utils/unit";
+import { Space } from "@/bases";
+import Popular from "./components/popular";
 
 const Home: React.FC = () => {
   const { data, error } = useRequest<IHomeData>({
@@ -23,14 +26,17 @@ const Home: React.FC = () => {
   return (
     <div className={styles.home}>
       <Header />
-      <Swiper autoplay loop style={{ "--border-radius": "12px" }}>
-        {data.banner.map((item) => (
-          <Swiper.Item key={item.src}>
-            <img src={item.src} alt={item.alt} height="100%" width="100%" />
-          </Swiper.Item>
-        ))}
-      </Swiper>
-      <Navbar />
+      <Space direction="vertical" gap={px2rem(12)}>
+        <Swiper autoplay loop style={{ "--border-radius": "12px" }}>
+          {data.banner.map((item) => (
+            <Swiper.Item key={item.src}>
+              <img src={item.src} alt={item.alt} height="100%" width="100%" />
+            </Swiper.Item>
+          ))}
+        </Swiper>
+        <Navbar />
+        <Popular books={data.popular} />
+      </Space>
     </div>
   );
 };
