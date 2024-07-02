@@ -9,6 +9,8 @@ import Navbar from "./components/navbar";
 import { px2rem } from "@/utils/unit";
 import { Space } from "@/bases";
 import Popular from "./components/popular";
+import Recommend from "./components/recommend";
+import LimitedRead from "./components/limitedRead";
 
 const Home: React.FC = () => {
   const { data, error } = useRequest<IHomeData>({
@@ -36,6 +38,8 @@ const Home: React.FC = () => {
         </Swiper>
         <Navbar />
         <Popular books={data.popular} />
+        <Recommend books={data.recommend} />
+        <LimitedRead books={data.limited} />
       </Space>
     </div>
   );

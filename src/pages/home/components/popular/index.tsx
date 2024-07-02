@@ -1,10 +1,9 @@
-import { Card, Grid } from "@taoyage/react-mobile-ui";
 import styles from "./index.module.scss";
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { px2rem } from "@/utils/unit";
 import { IBookInfo } from "@/types/book";
-import { Space } from "@/bases";
+import { Space, Card, Grid } from "@/bases";
 import BookCover from "@/components/bookCover";
 
 interface PopularProps {
