@@ -17,6 +17,7 @@
     "nprogress": "^0.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-is": "^18.3.1",
     "react-router-dom": "^6.23.1",
     "swr": "^2.2.5"
   },
@@ -24,6 +25,7 @@
     "@babel/runtime-corejs3": "^7.24.5",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
+    "@types/react-is": "^18.3.0",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
     "@typescript-eslint/parser": "^7.2.0",
     "@vitejs/plugin-react": "^4.2.1",

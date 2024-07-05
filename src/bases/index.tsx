@@ -11,7 +11,13 @@ export { default as Card } from "./card";
 export type { CardProps } from "./card";
 
 export { default as Grid } from "./grid";
-export type { GridProps } from "./grid";
+export type { GridProps, GridItemProps } from "./grid";
 
 export { default as Countdown } from "./countdown";
 export type { CountdownProps } from "./countdown";
+
+export { default as Tabs } from "./tabs";
+export type { TabsProps, TabProps } from "./tabs";
+
+export { default as Image } from "./image";
+export type { ImageProps } from "./image";
